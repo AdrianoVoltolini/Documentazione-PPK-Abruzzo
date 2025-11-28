@@ -8,13 +8,13 @@ Step 1: recupero dei file e programmi necessari
    
    Un file di prova è stato creato con raw2go posizionando il ricevitore GNSS in cima alle scale esterne della sede CREA-FL di Trento, per 10 minuti: :download:`prova.ubx <assets/ppk/prova.ubx>`
 
-2. Scaricare dati RINEX da TPOS. Assicurarsi di unire gli output da 15 minuti ciascuno in un singolo file cliccando sul pulsante “Unisci Files”.
+2. Scaricare dati RINEX da TPOS. Assicurarsi di unire gli output da 15 minuti ciascuno in un singolo file cliccando sul pulsante “Unisci Files”.  Il file che ci interessa è quello con formato .25o.
+   
+   Cartella compressa di prova: :download:`tntn318k00.rnx.zip <assets/ppk/tntn318k00.rnx.zip>`. 
 
  .. image:: assets/ppk/images/TPOS.png
 
- Il file che ci interessa è quello con formato .25o. Cartella compressa di prova: :download:`tntn318k00.rnx.zip <assets/ppk/tntn318k00.rnx.zip>`. 
-
-3. Scaricare RTKLIB: :download:`RTKLIB_EX_2.5.0.zip <assets/ppk/RTKLIB_EX_2.5.0.zip>`
+1. Scaricare RTKLIB: :download:`RTKLIB_EX_2.5.0.zip <assets/ppk/RTKLIB_EX_2.5.0.zip>`
    
    Manuale di RTKLIB (datato ma comunque utile): :download:`manual_demo5.pdf <assets/ppk/manual_demo5.pdf>`
 
