@@ -10,7 +10,7 @@ Step 1: recupero dei file e programmi necessari
 
 2. Scaricare dati RINEX da TPOS. Assicurarsi di unire gli output da 15 minuti ciascuno in un singolo file cliccando sul pulsante “Unisci Files”.
 
- .. image:: assets\\ppk\\images\\TPOS.png
+ .. image:: assets/ppk/images/TPOS.png
 
  Il file che ci interessa è quello con formato .25o. Cartella compressa di prova: :download:`tntn318k00.rnx.zip <assets/ppk/tntn318k00.rnx.zip>`. 
 
@@ -25,16 +25,16 @@ Step 2: conversione da .ubx a (.obs + .nav)
 1. Estrarre la cartella compressa di RTKLIB.
 2. Avviare l’applicazione rtklaunch
    
- .. image:: assets\\ppk\\images\\rtklaunch_icon.png
+ .. image:: assets/ppk/images/rtklaunch_icon.png
 
 3. Premere sulla seconda icona (RTKCONV)
 
- .. image:: assets\\ppk\\images\\rtklaunch_gui.png
+ .. image:: assets/ppk/images/rtklaunch_gui.png
 
 4. Sotto “RTCM, RCV RAW or RINEX OBS ?”, premere [...] e selezionare il file .ubx prodotto da raw2go 
 5. Sotto “RINEX OBS/NAV/GNAV/HNAV/QNAV/LNAV/CNAV/INAV/ and SBS” compariranno i percorsi dei file che verranno creati. Deseleziona l’ultimo file con formato .sbs che non ci serve per i passaggi successivi. 
 
- .. image:: assets\\ppk\\images\\rtkconv.png
+ .. image:: assets/ppk/images/rtkconv.png
 
 6. Premere [Options...]: 
 
@@ -46,7 +46,7 @@ Step 2: conversione da .ubx a (.obs + .nav)
 
    * Premere [OK]. La finestra Options si chiuderà.
 
- .. image:: assets\\ppk\\images\\rtkconv_options.png
+ .. image:: assets/ppk/images/rtkconv_options.png
 
 7. Premere [> Convert ] nella finestra di RTKCONV. I file .obs e .nav verranno creati nei percorsi visualizzati. 
 
@@ -61,7 +61,7 @@ Step 3: PPK
 
 4. Sotto “RINEX NAV/CLK, SP3, BIA/BSX, FCB, IONEX, SBS/EMS, or RTCM” premere [...] e selezionare il file .nav che abbiamo creato alla fine dello Step 2. 
  
- .. image:: assets\\ppk\\images\\rtkpost.png
+ .. image:: assets/ppk/images/rtkpost.png
 
 5. Premere [Options...]:
    
@@ -70,7 +70,7 @@ Step 3: PPK
    * Deselezionare i satelliti che non ci interessano.
    * Premere [OK]. La finestra Options si chiuderà.
 
- .. image:: assets\\ppk\\images\\rtkpost_options.png
+ .. image:: assets/ppk/images/rtkpost_options.png
 
 6. Premere [> Execute] nella finestra di RTKPOST. Un file con formato .pos dovrebbe essersi creato nel percorso visualizzato in basso.
 
@@ -82,15 +82,15 @@ Step 4: Conversione da .pos a .gpx
 
 3. Premere [Convert]. Il file .gpx dovrebbe essersi creato nel percorso visualizzato in basso.
 
- .. image:: assets\\ppk\\images\\kmlgpx_converter.png
+ .. image:: assets/ppk/images/kmlgpx_converter.png
 
 Step 5: Conclusione
 -------------------
 
 1. Chiudere tutte le finestre di RTKLIB. Le configurazioni delle varie finestre vengono salvate in automatico. Nel caso si volesse resettarle, entrare nella cartella di RTKLIB ed eliminare i file di tipo “Impostazioni di configurazione” creati recentemente. 
 
- .. image:: assets\\ppk\\images\\file_configurazione.png
+ .. image:: assets/ppk/images/file_configurazione.png
 
 2. Aprire il file gpx in QGIS: il gpx dovrebbe contenere 5 layers, 3 di punti e 2 di linee. Tuttavia, un layer di punti e un layer di linee sembrano vuoti. Il layer “waypoints” contiene anche la posizione della stazione TPOS utilizzata.
 
- .. image:: assets\\ppk\\images\\qgis.png
+ .. image:: assets/ppk/images/qgis.png
