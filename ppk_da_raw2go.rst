@@ -10,9 +10,9 @@ Step 1: recupero dei file e programmi necessari
 
 2. Scaricare i dati RINEX da https://gnssnet.regione.abruzzo.it/:
  
-   * Selezionare sulla mappa, o sull'elenco a tendina in 'Download Rinex', la stazione più vicina alla posizione di rilevamento del ricevitore GNSS, e premere 'dati Rinex'.
+   * Premere su 'Download Rinex', selezionare la stazione più vicina alla posizione di rilevamento del ricevitore GNSS, e premere 'dati Rinex'.
   
-   .. image:: assets/ppk/images/abruzzo_home.png
+   .. image:: assets/ppk/images/abruzzo_elenco.png
 
    * Accedere con le proprie credenziali o registrarsi se non si ha un account.
    * Nella finestra della stazione permanente, selezionare il giorno e orario in cui è stato fatto il rilevamento con il ricevitore GNSS, e l'intervallo di campionamento dei dati che si vogliono scaricare. Più l'intervallo sarà piccolo, più la correzione sarà accurata, ma più sarà grande il file da scaricare e più lenta sarà l'elaborazione dei dati. Premere [CreaRinex].
@@ -45,9 +45,9 @@ Step 2: conversione da .ubx a (.obs + .nav)
    
  .. image:: assets/ppk/images/rtkconv.png
 
-4. Sotto “RTCM, RCV RAW or RINEX OBS ?”, premere [...] e selezionare il file .ubx prodotto da raw2go. Sotto “RINEX OBS/NAV/GNAV/HNAV/QNAV/LNAV/CNAV/INAV/ and SBS” compariranno automaticamente i percorsi dei file che verranno creati in seguito.
+4. Sotto 'RTCM, RCV RAW or RINEX OBS ?', premere [...] e selezionare il file .ubx prodotto da raw2go. Sotto 'RINEX OBS/NAV/GNAV/HNAV/QNAV/LNAV/CNAV/INAV/ and SBS' compariranno automaticamente i percorsi dei file che verranno creati in seguito.
 
-5. Premere [Options...]: 
+5. Premere [# Options...]: 
 
    .. image:: assets/ppk/images/rtkconv_options.png
 
@@ -84,7 +84,7 @@ Step 4: PPK
 
 4. Sotto “RINEX NAV/CLK, SP3, BIA/BSX, FCB, IONEX, SBS/EMS, or RTCM” premere [...] e selezionare il file .nav creato alla fine dello Step 2. 
 
-5. Premere [Options...]:
+5. Premere [# Options...]:
 
    .. image:: assets/ppk/images/rtkpost_options.png
    
@@ -114,6 +114,6 @@ Step 6: Conclusione
 
  .. image:: assets/ppk/images/file_configurazione.png
 
-2. Aprire il file .gpx in QGIS: il .gpx dovrebbe contenere 5 layers, 3 di punti e 2 di linee. Tuttavia, un layer di punti e un layer di linee sembrano vuoti. Il layer “waypoints” contiene anche la posizione della stazione TPOS utilizzata. La qualità della correzione tramite PPK è indicata per ogni singolo punto come attributo nella colonna 'fix'. I possibili valori sono, in ordine dal migliore al peggiore: fix, float, dgps, single.
+2. Aprire il file .gpx in QGIS: il .gpx dovrebbe contenere 5 layers, 3 di punti e 2 di linee. Tuttavia, un layer di punti e un layer di linee sembrano vuoti. Il layer 'waypoints' contiene anche la posizione della stazione TPOS utilizzata. La qualità della correzione tramite PPK è indicata per ogni singolo punto come attributo nella colonna 'fix'. I possibili valori sono, in ordine dal migliore al peggiore: fix, float, dgps, single.
 
  .. image:: assets/ppk/images/qgis.png
