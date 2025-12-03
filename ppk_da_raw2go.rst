@@ -15,7 +15,7 @@ Step 1: recupero dei file e programmi necessari
    .. image:: assets/ppk/images/abruzzo_elenco.png
 
    * Accedere con le proprie credenziali o registrarsi se non si ha un account.
-   * Nella finestra della stazione permanente, selezionare il giorno e orario in cui è stato fatto il rilevamento con il ricevitore GNSS, e l'intervallo di campionamento dei dati che si vogliono scaricare. Più l'intervallo sarà piccolo, più la correzione sarà accurata, ma più sarà grande il file da scaricare e più lenta sarà l'elaborazione dei dati. Premere [CreaRinex].
+   * Nella finestra della stazione permanente, selezionare il giorno e orario in cui è stato fatto il rilevamento con il ricevitore GNSS, e fissare l'intervallo di campionamento dei dati raccolti a 5 secondi. Premere [CreaRinex].
 
    .. image:: assets/ppk/images/abruzzo_stazione.png
 
