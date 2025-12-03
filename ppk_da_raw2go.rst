@@ -6,15 +6,27 @@ Step 1: recupero dei file e programmi necessari
 
 1. Recuperare file .ubx creato da raw2go dal tablet. Lo si può trovare in “memoria interna/Download/(data in cui si è fatta la geolocalizzazione)”.
    
-   Un file di prova è stato creato con raw2go posizionando il ricevitore GNSS in cima alle scale esterne della sede CREA-FL di Trento, per 10 minuti: :download:`prova.ubx <assets/ppk/prova.ubx>`
+   File di prova di 1 ora con ricevitore GNSS posizionato a Sant'Eufemia a Maiella: :download:`seufemia1.ubx <assets/ppk/seufemia1.ubx>`
 
-2. Scaricare dati RINEX da TPOS. Assicurarsi di unire gli output da 15 minuti ciascuno in un singolo file cliccando sul pulsante “Unisci Files”.  Il file che ci interessa è quello con formato .25o.
-   
-   Cartella compressa di prova: :download:`tntn318k00.rnx.zip <assets/ppk/tntn318k00.rnx.zip>`. 
+2. Scaricare i dati RINEX da https://gnssnet.regione.abruzzo.it/:
+ 
+   * Selezionare sulla mappa, o sull'elenco a tendina in 'Download Rinex', la stazione più vicina alla posizione di rilevamento del ricevitore GNSS, e premere 'dati Rinex'.
+  
+   .. image:: assets/ppk/images/abruzzo_home.png
 
- .. image:: assets/ppk/images/TPOS.png
+   * Accedere con le proprie credenziali o registrarsi se non si ha un account.
+   * Nella finestra della stazione permanente, selezionare il giorno e orario in cui è stato fatto il rilevamento con il ricevitore GNSS, e l'intervallo di campionamento dei dati che si vogliono scaricare. Più l'intervallo sarà piccolo, più la correzione sarà accurata, ma più sarà grande il file da scaricare e più lenta sarà l'elaborazione dei dati. Premere [CreaRinex].
 
-1. Scaricare RTKLIB: :download:`RTKLIB_EX_2.5.0.zip <assets/ppk/RTKLIB_EX_2.5.0.zip>`
+   .. image:: assets/ppk/images/abruzzo_stazione.png
+
+   * Revisionare gli input e premere [Conferma]. Comincerà l'elaborazione dei file.
+   * Una volta finita l'elaborazione, scaricare il file con formato .25O. Se il browser segnala che 'il file non può essere scaricato in modo sicuro', posizionare il cursore del mouse sull'avviso, premere su [...] a destra del cestino, premere su [Mantieni] e infine su [Conserva comunque].
+
+   .. image:: assets/ppk/images/abruzzo_download.png
+
+   File .25O di prova: :download:`smra3340.25O <assets/ppk/smra3340.25O>`. 
+
+3. Scaricare RTKLIB: :download:`RTKLIB_EX_2.5.0.zip <assets/ppk/RTKLIB_EX_2.5.0.zip>`
    
    Manuale di RTKLIB (datato ma comunque utile): :download:`manual_demo5.pdf <assets/ppk/manual_demo5.pdf>`
 
@@ -27,70 +39,81 @@ Step 2: conversione da .ubx a (.obs + .nav)
    
  .. image:: assets/ppk/images/rtklaunch_icon.png
 
-3. Premere sulla seconda icona (RTKCONV)
-
  .. image:: assets/ppk/images/rtklaunch_gui.png
 
-4. Sotto “RTCM, RCV RAW or RINEX OBS ?”, premere [...] e selezionare il file .ubx prodotto da raw2go 
-5. Sotto “RINEX OBS/NAV/GNAV/HNAV/QNAV/LNAV/CNAV/INAV/ and SBS” compariranno i percorsi dei file che verranno creati. Deseleziona l’ultimo file con formato .sbs che non ci serve per i passaggi successivi. 
-
+3. Premere sulla seconda icona (RTKCONV). Si aprirà la finestra di RTKCONV.
+   
  .. image:: assets/ppk/images/rtkconv.png
 
-6. Premere [Options...]: 
+4. Sotto “RTCM, RCV RAW or RINEX OBS ?”, premere [...] e selezionare il file .ubx prodotto da raw2go. Sotto “RINEX OBS/NAV/GNAV/HNAV/QNAV/LNAV/CNAV/INAV/ and SBS” compariranno automaticamente i percorsi dei file che verranno creati in seguito.
 
-   * Assicurarsi che la RINEX ver sia la 3.04 (i file scaricati da TPOS sono in questa versione. Per controllare, apri uno dei file con il blocco note e leggi la prima riga) 
+5. Premere [Options...]: 
 
-   * Selezionare i Satellite Systems che erano disponibili per TPOS (probabilmente solo GPS e GLONASS) 
+   .. image:: assets/ppk/images/rtkconv_options.png
 
-   * Selezionare I GNSS Signals utilizzati dal nostro ricevitore (L1 e L2) 
+   * Selezionare i Satellite Systems di interesse. 
+
+   * Selezionare I GNSS Signals utilizzati dal ricevitore (L1 e L2) 
 
    * Premere [OK]. La finestra Options si chiuderà.
 
- .. image:: assets/ppk/images/rtkconv_options.png
+6. Premere [> Convert ] nella finestra di RTKCONV. I file .obs e .nav verranno creati nei percorsi visualizzati. 
 
-7. Premere [> Convert ] nella finestra di RTKCONV. I file .obs e .nav verranno creati nei percorsi visualizzati. 
 
-Step 3: PPK
+Step 3: salvataggio dei dati DOP
+--------------------------------------------------------------
+
+1. Nella finestra di RTKCONV, Premere su [@ Plot...]. Si aprirà una nuova finestra.
+2. Aspettare qualche secondo affinché la finestra carichi i dati. 
+3. Andare su File -> Save # of Sats/DOP...
+
+ .. image:: assets/ppk/images/rtkplot_dop.png
+
+4. Scegliere dove salvare il file e il nome, e premere [salva].
+
+Step 4: PPK
 -----------
 
-1. Premere [Process...] nella finestra di RTKCONV. Si aprirà la finestra di RTKPOST.
+1. Nella finestra di RTKCONV, premere [Process...]. Si aprirà la finestra di RTKPOST.
 
-2. Sotto “RINEX OBS: Rover ?” dovrebbe già comparire il file .obs che abbiamo appena creato. Nel caso si volesse elaborare un file diverso, premere [...] e selezionarlo. 
+   .. image:: assets/ppk/images/rtkpost.png
 
-3. Sotto “RINEX OBS: Base Station”, premere [...] e cercare il file .25o che abbiamo scaricato da TPOS. 
+2. Sotto “RINEX OBS: Rover ?” dovrebbe già comparire il file .obs creato alla fine dello Step 2. Nel caso si volesse elaborare un file diverso, premere [...] e selezionarlo. 
 
-4. Sotto “RINEX NAV/CLK, SP3, BIA/BSX, FCB, IONEX, SBS/EMS, or RTCM” premere [...] e selezionare il file .nav che abbiamo creato alla fine dello Step 2. 
- 
- .. image:: assets/ppk/images/rtkpost.png
+3. Sotto “RINEX OBS: Base Station”, premere [...] e cercare il file .25O scaricato nello Step 1. 
+
+4. Sotto “RINEX NAV/CLK, SP3, BIA/BSX, FCB, IONEX, SBS/EMS, or RTCM” premere [...] e selezionare il file .nav creato alla fine dello Step 2. 
 
 5. Premere [Options...]:
+
+   .. image:: assets/ppk/images/rtkpost_options.png
    
-   * Premere [Load...], navigare nella cartella di RTKLIB e selezionare il file “f9p_ppk.conf”. Questo file contiene la configurazione ottimale per fare Post Processing Kinematics con il chip F9P, presente all'interno del nostro ricevitore GNSS. 
+   * Premere [Load...], navigare nella cartella di RTKLIB e selezionare il file “f9p_ppk.conf”. Questo file contiene la configurazione ottimale per fare Post Processing Kinematics con il chip F9P, presente all'interno del ricevitore GNSS. 
    
-   * Deselezionare i satelliti che non ci interessano.
+   * selezionare i satelliti di interesse.
    * Premere [OK]. La finestra Options si chiuderà.
 
- .. image:: assets/ppk/images/rtkpost_options.png
+6. Nella finestra di RTKPOST, premere [> Execute]. Un file con formato .pos dovrebbe essersi creato nel percorso visualizzato in basso, assieme ad altri file.
 
-6. Premere [> Execute] nella finestra di RTKPOST. Un file con formato .pos dovrebbe essersi creato nel percorso visualizzato in basso.
 
-Step 4: Conversione da .pos a .gpx
+Step 5: Conversione da .pos a .gpx
 ----------------------------------
-1. Premere il pulsante [KML/GPX...] nella finestra di RTKPOST. Si aprirà la finestra KML/GPX Converter.
+1. Nella finestra di RTKPOST, Premere il pulsante [KML/GPX...]. Si aprirà la finestra KML/GPX Converter.
+
+ .. image:: assets/ppk/images/kmlgpx_converter.png
 
 2. Assicurarsi che l'Output Format sia GPX.
 
 3. Premere [Convert]. Il file .gpx dovrebbe essersi creato nel percorso visualizzato in basso.
 
- .. image:: assets/ppk/images/kmlgpx_converter.png
 
-Step 5: Conclusione
+Step 6: Conclusione
 -------------------
 
 1. Chiudere tutte le finestre di RTKLIB. Le configurazioni delle varie finestre vengono salvate in automatico. Nel caso si volesse resettarle, entrare nella cartella di RTKLIB ed eliminare i file di tipo “Impostazioni di configurazione” creati recentemente. 
 
  .. image:: assets/ppk/images/file_configurazione.png
 
-2. Aprire il file gpx in QGIS: il gpx dovrebbe contenere 5 layers, 3 di punti e 2 di linee. Tuttavia, un layer di punti e un layer di linee sembrano vuoti. Il layer “waypoints” contiene anche la posizione della stazione TPOS utilizzata.
+2. Aprire il file .gpx in QGIS: il .gpx dovrebbe contenere 5 layers, 3 di punti e 2 di linee. Tuttavia, un layer di punti e un layer di linee sembrano vuoti. Il layer “waypoints” contiene anche la posizione della stazione TPOS utilizzata. La qualità della correzione tramite PPK è indicata per ogni singolo punto come attributo nella colonna 'fix'. I possibili valori sono, in ordine dal migliore al peggiore: fix, float, dgps, single.
 
  .. image:: assets/ppk/images/qgis.png

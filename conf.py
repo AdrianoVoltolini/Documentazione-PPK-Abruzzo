@@ -7,8 +7,8 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'Documentazione IFRA'
-copyright = '2025, AdrianoVoltolini'
-author = 'AdrianoVoltolini'
+copyright = '2025, Adriano Voltolini'
+author = 'Adriano Voltolini'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
