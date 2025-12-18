@@ -1,10 +1,10 @@
-.. Documentazione IFRA master file, created by
+.. Documentazione PPK Abruzzo master file, created by
    sphinx-quickstart on Thu Nov 20 15:42:59 2025.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Documentazione IFRA
-===================
+Documentazione PPK Abruzzo
+==========================
 
 
 .. toctree::

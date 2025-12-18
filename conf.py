@@ -6,7 +6,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'Documentazione IFRA'
+project = 'Documentazione PPK Abruzzo'
 copyright = '2025, Adriano Voltolini'
 author = 'Adriano Voltolini'
 
@@ -24,6 +24,6 @@ language = 'it'
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 html_theme = "sphinx_rtd_theme"
-html_title = "IFRA"
+# html_title = "IFRA"
 
 html_static_path = ['_static']
