@@ -117,3 +117,4 @@ Step 6: Conclusione
 2. Aprire il file .gpx in QGIS: il .gpx dovrebbe contenere 5 layers, 3 di punti e 2 di linee. Tuttavia, un layer di punti e un layer di linee sembrano vuoti. Il layer 'waypoints' contiene anche la posizione della stazione permanente utilizzata. La qualità della correzione tramite PPK è indicata per ogni singolo punto come attributo nella colonna 'fix'. I possibili valori sono, in ordine dal migliore al peggiore: fix, float, dgps, single.
 
  .. image:: assets/ppk/images/qgis.png
+
